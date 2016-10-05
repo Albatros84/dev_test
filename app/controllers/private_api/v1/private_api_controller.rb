@@ -1,6 +1,5 @@
-class PrivateApi::V1::PrivateApiController < ApplicationController
+class PrivateApi::V1::PrivateApiController < PrivateApi::V1::BaseController
   before_filter :restrict_access
-  #curl 'http://localhost:3000/private_api/v1/locations/PL?access_token=api_key_here' -I
 
   def locations
     c=Country.where(country_code: params[:country_code]).first

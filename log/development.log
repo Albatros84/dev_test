@@ -5338,3 +5338,34 @@ Started GET "/" for 127.0.0.1 at 2016-10-05 02:27:14 +0200
 Processing by WelcomeController#index as HTML
   Rendered welcome/index.html.erb within layouts/application (3.2ms)
 Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/private_api/v1/locations/PL?access_token=938fd485444d26ba75b52cbbe7ddff39" for 127.0.0.1 at 2016-10-05 02:36:59 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PrivateApi::V1::PrivateApiController#locations as HTML
+  Parameters: {"access_token"=>"938fd485444d26ba75b52cbbe7ddff39", "country_code"=>"PL"}
+  [1m[35mApiKey Exists (0.2ms)[0m  SELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "938fd485444d26ba75b52cbbe7ddff39"]]
+  [1m[36mCountry Load (0.1ms)[0m  [1mSELECT  "countries".* FROM "countries" WHERE "countries"."country_code" = ?  ORDER BY "countries"."id" ASC LIMIT 1[0m  [["country_code", "PL"]]
+  [1m[35mLocationGroup Load (0.1ms)[0m  SELECT  "location_groups".* FROM "location_groups" WHERE "location_groups"."country_id" = ? AND "location_groups"."panel_provider_id" = ?  ORDER BY "location_groups"."id" ASC LIMIT 1  [["country_id", 1], ["panel_provider_id", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT "locations".* FROM "locations" INNER JOIN "location_groups_locations" ON "locations"."id" = "location_groups_locations"."location_id" WHERE "location_groups_locations"."location_group_id" = ?[0m  [["location_group_id", 1]]
+Completed 200 OK in 139ms (Views: 0.2ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/private_api/v1/locations/PL?access_token=938fd485444d26ba75b52cbbe7ddff39" for 127.0.0.1 at 2016-10-05 02:37:05 +0200
+Processing by PrivateApi::V1::PrivateApiController#locations as HTML
+  Parameters: {"access_token"=>"938fd485444d26ba75b52cbbe7ddff39", "country_code"=>"PL"}
+  [1m[35mApiKey Exists (3.0ms)[0m  SELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "938fd485444d26ba75b52cbbe7ddff39"]]
+  [1m[36mCountry Load (2.7ms)[0m  [1mSELECT  "countries".* FROM "countries" WHERE "countries"."country_code" = ?  ORDER BY "countries"."id" ASC LIMIT 1[0m  [["country_code", "PL"]]
+  [1m[35mLocationGroup Load (1.3ms)[0m  SELECT  "location_groups".* FROM "location_groups" WHERE "location_groups"."country_id" = ? AND "location_groups"."panel_provider_id" = ?  ORDER BY "location_groups"."id" ASC LIMIT 1  [["country_id", 1], ["panel_provider_id", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT "locations".* FROM "locations" INNER JOIN "location_groups_locations" ON "locations"."id" = "location_groups_locations"."location_id" WHERE "location_groups_locations"."location_group_id" = ?[0m  [["location_group_id", 1]]
+Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/private_api/v1/locations/PL?access_token=938fd485444d26ba75b52cbbe7ddff39" for 127.0.0.1 at 2016-10-05 02:37:07 +0200
+Processing by PrivateApi::V1::PrivateApiController#locations as HTML
+  Parameters: {"access_token"=>"938fd485444d26ba75b52cbbe7ddff39", "country_code"=>"PL"}
+  [1m[35mApiKey Exists (0.1ms)[0m  SELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "938fd485444d26ba75b52cbbe7ddff39"]]
+  [1m[36mCountry Load (0.1ms)[0m  [1mSELECT  "countries".* FROM "countries" WHERE "countries"."country_code" = ?  ORDER BY "countries"."id" ASC LIMIT 1[0m  [["country_code", "PL"]]
+  [1m[35mLocationGroup Load (0.0ms)[0m  SELECT  "location_groups".* FROM "location_groups" WHERE "location_groups"."country_id" = ? AND "location_groups"."panel_provider_id" = ?  ORDER BY "location_groups"."id" ASC LIMIT 1  [["country_id", 1], ["panel_provider_id", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT "locations".* FROM "locations" INNER JOIN "location_groups_locations" ON "locations"."id" = "location_groups_locations"."location_id" WHERE "location_groups_locations"."location_group_id" = ?[0m  [["location_group_id", 1]]
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.3ms)

@@ -1,6 +1,6 @@
 require 'rack/throttle'
 
-class PublicApi::V1::PublicApiController < ApplicationController
+class PublicApi::V1::PublicApiController < PublicApi::V1::BaseController 
   use Rack::Throttle::Interval, :min => 3.0
   
   
