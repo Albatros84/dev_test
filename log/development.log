@@ -5369,3 +5369,76 @@ Processing by PrivateApi::V1::PrivateApiController#locations as HTML
   [1m[35mLocationGroup Load (0.0ms)[0m  SELECT  "location_groups".* FROM "location_groups" WHERE "location_groups"."country_id" = ? AND "location_groups"."panel_provider_id" = ?  ORDER BY "location_groups"."id" ASC LIMIT 1  [["country_id", 1], ["panel_provider_id", 1]]
   [1m[36mLocation Load (0.1ms)[0m  [1mSELECT "locations".* FROM "locations" INNER JOIN "location_groups_locations" ON "locations"."id" = "location_groups_locations"."location_id" WHERE "location_groups_locations"."location_group_id" = ?[0m  [["location_group_id", 1]]
 Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-05 23:56:17 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as */*
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 198ms (Views: 192.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-05 23:56:37 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/private_api/v1/locations/PL" for 127.0.0.1 at 2016-10-06 00:20:48 +0200
+Processing by PrivateApi::V1::PrivateApiController#locations as */*
+  Parameters: {"country_code"=>"PL"}
+  [1m[35mApiKey Exists (0.9ms)[0m  SELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", ""]]
+Redirected to http://localhost:3000/
+Filter chain halted as :restrict_access rendered or redirected
+Completed 302 Found in 25ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/public_api/v1/locations/PL" for 127.0.0.1 at 2016-10-06 00:21:04 +0200
+Processing by PublicApi::V1::PublicApiController#locations as */*
+  Parameters: {"country_code"=>"PL"}
+  [1m[36mCountry Load (0.1ms)[0m  [1mSELECT  "countries".* FROM "countries" WHERE "countries"."country_code" = ?  ORDER BY "countries"."id" ASC LIMIT 1[0m  [["country_code", "PL"]]
+  [1m[35mLocationGroup Load (0.1ms)[0m  SELECT  "location_groups".* FROM "location_groups" WHERE "location_groups"."country_id" = ? AND "location_groups"."panel_provider_id" = ?  ORDER BY "location_groups"."id" ASC LIMIT 1  [["country_id", 1], ["panel_provider_id", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" INNER JOIN "location_groups_locations" ON "locations"."id" = "location_groups_locations"."location_id" WHERE "location_groups_locations"."location_group_id" = ?[0m  [["location_group_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "location_groups".* FROM "location_groups" WHERE "location_groups"."country_id" = ? AND "location_groups"."panel_provider_id" = ?  ORDER BY "location_groups"."id" ASC LIMIT 1  [["country_id", 1], ["panel_provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" INNER JOIN "location_groups_locations" ON "locations"."id" = "location_groups_locations"."location_id" WHERE "location_groups_locations"."location_group_id" = ?[0m  [["location_group_id", 1]]
+Completed 200 OK in 48ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-06 00:37:30 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-06 00:37:44 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 208ms (Views: 201.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-10-06 00:37:44 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-10-06 00:37:44 +0200
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2016-10-06 00:37:44 +0200
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2016-10-06 00:37:44 +0200
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2016-10-06 00:37:44 +0200
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-10-06 00:37:44 +0200
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for 127.0.0.1 at 2016-10-06 00:37:44 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-06 00:37:59 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 13ms (Views: 12.9ms | ActiveRecord: 0.0ms)

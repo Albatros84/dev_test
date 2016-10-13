@@ -12,6 +12,5 @@ class CreateLocations < ActiveRecord::Migration
       t.integer :location_id
       t.integer :location_group_id
     end
-
   end
 end

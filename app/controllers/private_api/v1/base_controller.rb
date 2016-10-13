@@ -1,9 +1,13 @@
-class PrivateApi::V1::BaseController < ApplicationController
-  protect_from_forgery with: :null_session
+class PrivateApi
+  class V1
+    class BaseController < ApplicationController
+      protect_from_forgery with: :null_session
 
-  before_action :destroy_session
+      before_action :destroy_session
 
-  def destroy_session
-    request.session_options[:skip] = true
+      def destroy_session
+        request.session_options[:skip] = true
+      end
+    end
   end
 end

@@ -11,58 +11,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004060757) do
-
-  create_table "api_keys", force: :cascade do |t|
-    t.string   "access_token"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+ActiveRecord::Schema.define(version: 20_161_004_060_757) do
+  create_table 'api_keys', force: :cascade do |t|
+    t.string   'access_token'
+    t.datetime 'created_at',   null: false
+    t.datetime 'updated_at',   null: false
   end
 
-  create_table "countries", force: :cascade do |t|
-    t.string   "country_code"
-    t.integer  "panel_provider_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+  create_table 'countries', force: :cascade do |t|
+    t.string   'country_code'
+    t.integer  'panel_provider_id'
+    t.datetime 'created_at',        null: false
+    t.datetime 'updated_at',        null: false
   end
 
-  create_table "location_groups", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "country_id"
-    t.integer  "panel_provider_id"
-    t.integer  "location_groups_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+  create_table 'location_groups', force: :cascade do |t|
+    t.string   'name'
+    t.integer  'country_id'
+    t.integer  'panel_provider_id'
+    t.integer  'location_groups_id'
+    t.datetime 'created_at',         null: false
+    t.datetime 'updated_at',         null: false
   end
 
-  create_table "location_groups_locations", force: :cascade do |t|
-    t.integer "location_id"
-    t.integer "location_group_id"
+  create_table 'location_groups_locations', force: :cascade do |t|
+    t.integer 'location_id'
+    t.integer 'location_group_id'
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "external_id"
-    t.string   "secret_code"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table 'locations', force: :cascade do |t|
+    t.string   'name'
+    t.integer  'external_id'
+    t.string   'secret_code'
+    t.datetime 'created_at',  null: false
+    t.datetime 'updated_at',  null: false
   end
 
-  create_table "panel_providers", force: :cascade do |t|
-    t.string   "code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'panel_providers', force: :cascade do |t|
+    t.string   'code'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "target_groups", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "external_id"
-    t.integer  "parent_id"
-    t.string   "secret_code"
-    t.integer  "panel_provider_id"
-    t.integer  "country_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+  create_table 'target_groups', force: :cascade do |t|
+    t.string   'name'
+    t.integer  'external_id'
+    t.integer  'parent_id'
+    t.string   'secret_code'
+    t.integer  'panel_provider_id'
+    t.integer  'country_id'
+    t.datetime 'created_at',        null: false
+    t.datetime 'updated_at',        null: false
   end
-
 end

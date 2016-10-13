@@ -15,8 +15,7 @@ class PublicApi::V1::PublicApiController < PublicApi::V1::BaseController
   def target_groups
     c=Country.where(country_code: params[:country_code]).first
     target_groups=c.target_groups.where(panel_provider_id: c.panel_provider_id)
-    render json: target_groups.map { |tg| tg.as_json(only: [:id, :name, :external_id, :parent_id, :panel_provider_id ]) }
+    render json: target_groups.map 
+      {|tg| tg.as_json(only: [:id, :name, :external_id, :parent_id, :panel_provider_id])}
   end
-
-
 end

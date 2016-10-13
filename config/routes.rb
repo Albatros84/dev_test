@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-
-
   get 'welcome/index'
 
-  #private_api
+  # private_api
   namespace :private_api do
     namespace :v1 do
       get 'locations/:country_code' => 'private_api#locations'
@@ -12,15 +10,13 @@ Rails.application.routes.draw do
     end
   end
 
-
-  #public_api
+  # public_api
   namespace :public_api do
     namespace :v1 do
       get 'locations/:country_code' => 'public_api#locations', as: :plocation
       get 'target_groups/:country_code' => 'public_api#target_groups', as: :ptarget_group
     end
   end
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -76,5 +72,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
 end

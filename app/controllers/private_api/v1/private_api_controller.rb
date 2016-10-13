@@ -1,4 +1,6 @@
-class PrivateApi::V1::PrivateApiController < PrivateApi::V1::BaseController
+class PrivateApi
+  class V1
+    class PrivateApiController < PrivateApi::V1::BaseController
   before_filter :restrict_access
 
   def locations
@@ -19,23 +21,20 @@ class PrivateApi::V1::PrivateApiController < PrivateApi::V1::BaseController
        when 1 then PanelProvider.panel1_price
        when 2 then PanelProvider.panel2_price
        when 3 then PanelProvider.panel3_price
-       else "Unknown"
+       else 'Unknown'
     end
 
     render json: price.to_json
   end
 
-
-private
+  private
 
   def evaluate_params
     params.permit(:country_code, :target_group_id, :locations, :access_toke)
   end
 
-def restrict_access
-  unless ApiKey.exists?(access_token: params[:access_token].to_s)
-    redirect_to root_url
+  def restrict_access
+    redirect_to root_url unless ApiKey.exists? 
+    access_token: params[:access_token].to_s
   end
-end
-
 end
